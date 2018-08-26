@@ -1,0 +1,32 @@
+.Board {
+    display: inline-block;
+}
+
+.Board table {
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    margin: 0px 20px;
+    opacity: .2;
+}
+
+.Board table.clickable {
+    opacity: 1;
+}
+
+.Board table td {
+    border: 2px solid black;
+    cursor: pointer;
+    width: 33%;
+    height: 33%;
+    font-size: 22px;
+    text-align: center;
+}
+
+.Board table td.cross {
+    color: red;
+}
+
+.Board table td.circle {
+    color: blue;
+}

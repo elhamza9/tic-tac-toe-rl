@@ -1,0 +1,14 @@
+
+.Menu .item {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 10px 30px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Menu .item:hover {
+    background-color: aliceblue;
+}
