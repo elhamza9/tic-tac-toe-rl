@@ -17,6 +17,8 @@ class Menu extends Component {
         this.props.showArena('HxH');
       } else if ( id === 'humanvsbot' ) {
         this.props.showArena('HxB');
+      } else if ( id === 'botvsbot' ) {
+        this.props.showArena('BxB');
       } else {
           alert('Unknown Menu Item clicked');
       }
@@ -31,6 +33,9 @@ class Menu extends Component {
               </div>
               <div id="humanvshuman" className="item" onClick={this.onItemClick}>
                 <p>Human vs Human</p>
+              </div>
+              <div id="botvsbot" className="item" onClick={this.onItemClick}>
+                <p>Bot vs Bot ( Training )</p>
               </div>
           </div>
       </div>

@@ -47,7 +47,7 @@ class Board extends Component {
   render() {
     return (
       <div className="Board">
-        <table className={`${this.props.clickable ? 'clickable' : ''} ${this.props.gameOver ? 'hidden': ''}`}>
+        <table className={`${this.props.clickable ? 'clickable ' : ''} ${this.props.boardIsVisible ? '': 'hidden'}`}>
           <tbody>
             <tr>
               <td id="00" onClick={this.onSquareClick} className={this.getClassName(this.props.boardValues[0][0])}>{this.getSymbol(this.props.boardValues[0][0])}</td>
@@ -76,7 +76,7 @@ const mapStateToProps = (state) => {
   return {
             boardValues: state.app.values,
             clickable: state.app.boardIsClickable,
-            gameOver: state.app.gameOver
+            boardIsVisible: state.app.boardIsVisible
         };
 };
 

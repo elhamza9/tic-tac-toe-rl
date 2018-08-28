@@ -14,12 +14,9 @@ class Player extends Component {
 
 
   componentDidUpdate(prevProps) {
-    if (this.props.isBot && this.props.currentPlayerIsBot) {
-      //console.log('Bot will make move')
-      this.props.playMove(-1,-1);
-      if (this.props.currentPlayer === this.props.symbol) {
-
-         
+    if (!this.props.gameOver && this.props.isBot && this.props.currentPlayerIsBot) {
+      if (this.props.symbol === this.props.currentPlayer) {
+          setTimeout(() => {this.props.playMove(-1,-1)}, 700);
       }
     }
   }
@@ -45,6 +42,7 @@ class Player extends Component {
 
 const mapStateToProps = (state) => {
   return {
+            gameOver : state.app.gameOver,
             currentPlayer: state.app.currentPlayer,
             currentPlayerIsBot: state.app.currentPlayerIsBot
         };

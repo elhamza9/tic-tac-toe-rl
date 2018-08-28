@@ -1,3 +1,7 @@
 .Arena {
     margin: 15px 0px;
 }
+
+.Arena #newgame-btn.hidden {
+    display: none;
+}
