@@ -6,14 +6,10 @@ import '../styles/Board.css';
 
 class Board extends Component {
 
-  constructor (props) {
-    super(props);
-  }
-
   getSymbol = (i) => {
-      if ( i == 1 ) {
+      if ( i === 1 ) {
         return 'X';
-      } else if ( i == 2 ) {
+      } else if ( i === 2 ) {
           return 'O';
       } else {
           return '';
@@ -24,7 +20,7 @@ class Board extends Component {
       if (this.props.clickable) {
         // get coordinates
         let coordinates = ev.target.id.split('');
-        if (coordinates.length != 2) {
+        if (coordinates.length !== 2) {
             alert('Cell ID format invalid');
             return;
         }
@@ -51,7 +47,7 @@ class Board extends Component {
   render() {
     return (
       <div className="Board">
-        <table className={this.props.clickable ? 'clickable' : ''}>
+        <table className={`${this.props.clickable ? 'clickable' : ''} ${this.props.gameOver ? 'hidden': ''}`}>
           <tbody>
             <tr>
               <td id="00" onClick={this.onSquareClick} className={this.getClassName(this.props.boardValues[0][0])}>{this.getSymbol(this.props.boardValues[0][0])}</td>
@@ -80,6 +76,7 @@ const mapStateToProps = (state) => {
   return {
             boardValues: state.app.values,
             clickable: state.app.boardIsClickable,
+            gameOver: state.app.gameOver
         };
 };
 

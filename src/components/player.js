@@ -8,29 +8,18 @@ import '../styles/Player.css';
 
 class Player extends Component {
 
-  constructor (props) {
-    super(props);
-    if ( props.isBot ) {
-      this.state = {
-        alpha: .5,
-        eps: .1
-      }
-    } else {
-      this.state = {
-
-      };
-    }
-  }
-
   onTrainClick = (ev) => {
     alert('train');
   };
 
 
   componentDidUpdate(prevProps) {
-    if (this.props.isBot) {
+    if (this.props.isBot && this.props.currentPlayerIsBot) {
+      //console.log('Bot will make move')
+      this.props.playMove(-1,-1);
       if (this.props.currentPlayer === this.props.symbol) {
-         this.props.playMove(-1,-1);
+
+         
       }
     }
   }
@@ -57,6 +46,7 @@ class Player extends Component {
 const mapStateToProps = (state) => {
   return {
             currentPlayer: state.app.currentPlayer,
+            currentPlayerIsBot: state.app.currentPlayerIsBot
         };
 };
 

@@ -15,16 +15,20 @@ class Arena extends Component {
     this.state = {
       botSymbol: 1
     };
+    this.newGameBtn = React.createRef();
+    //this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   onBackClick = (ev) => {
-    this.props.cleanBoard();
+    //this.props.cleanBoard();
     this.props.hideArena();
+    this.props.startGame(false);
   }
 
-  startGameClick = (ev) => {
+   onNewGameClick = (ev) => {
+    let ret = false;
     if ( this.props.mode === 'HxB' ) {
-      let ret = window.confirm('Do you want Bot to start ?');
+      ret = window.confirm('Do you want Bot to start ?');
       if (ret) {
         this.setState({
           botSymbol: 1
@@ -35,7 +39,7 @@ class Arena extends Component {
         });
       }
     }
-    this.props.startGame();
+    this.props.startGame(ret);
   }
 
 
@@ -43,15 +47,15 @@ class Arena extends Component {
     return (
       <div className="Arena">
         <div>
-            <button onClick={this.onBackClick}>Back to Menu</button>
+            <button  onClick={this.onBackClick}>Back to Menu</button>
         </div>
         <div>
-            <button onClick={this.startGameClick}>Start Game</button>
+            <button id="newgame-btn" className={this.props.gameOver ? 'hidden' : ''} onClick={this.onNewGameClick}>Start Game</button>
         </div>
         <div>
-            <Player isBot={false} symbol={this.state.botSymbol === 1 ? 2 : 1} />
+            <Player isBot={false} symbol={-1} />
             <Board />
-            <Player isBot={this.props.mode === 'HxB' ? true : false} symbol={this.state.botSymbol} />
+            <Player isBot={this.props.mode === 'HxB' ? true : false} symbol={-1} />
         </div>
       </div>
     );
@@ -64,6 +68,7 @@ const mapStateToProps = (state) => {
   return {
             mode: state.app.mode,
             currentPlayer: state.app.currentPlayer,
+            gameOver: state.app.gameOver
         };
 };
 
@@ -71,8 +76,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         hideArena: () => { dispatch(setArenaAction('HxH', false)) },
-        cleanBoard: () => { dispatch(cleanBoardAction())},
-        startGame: () => { dispatch(startGameAction(true))},
+        startGame: (nextPlayerIsBot) => { dispatch(startGameAction(nextPlayerIsBot))},
     };
 };
 

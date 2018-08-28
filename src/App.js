@@ -8,10 +8,6 @@ import './styles/App.css';
 
 class App extends Component {
 
-  constructor (props) {
-    super(props);
-  }
-
   render() {
     let comp;
     if ( this.props.arenaIsVisible ) {
