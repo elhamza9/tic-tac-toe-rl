@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { playMoveAction } from '../actions/app';
+import { playMoveAction } from '../redux/actions/app';
 
 import '../styles/Board.css';
 
@@ -24,8 +24,8 @@ class Board extends Component {
             alert('Cell ID format invalid');
             return;
         }
-        coordinates[0] = parseInt(coordinates[0]);
-        coordinates[1] = parseInt(coordinates[1]);
+        coordinates[0] = parseInt(coordinates[0], 10); // 10 is for the base ( just to clear the warnings )
+        coordinates[1] = parseInt(coordinates[1], 10);
         
         // If empty play move
         if (this.props.boardValues[coordinates[0]][coordinates[1]] === 0) {
@@ -35,14 +35,13 @@ class Board extends Component {
         }
         
       } else {
-          alert('Board not clickable');
+          //alert('Board not clickable');
       }
   }
 
   getClassName = (symbol) => {
     return symbol === 1 ? 'cross' : 'circle';
   }
-
 
   render() {
     return (

@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import App  from './App';
 
-import rootReducer from './reducers/index';
+import rootReducer from './redux/reducers/index';
 
 import './styles/index.css';
 

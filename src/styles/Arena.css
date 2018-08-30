@@ -1,7 +1,51 @@
 .Arena {
-    margin: 15px 0px;
+    margin: 15px 20px;
+    position: relative;
+}
+
+.Arena .top {
+    margin-bottom: 20px;
 }
 
 .Arena #newgame-btn.hidden {
+    opacity: 0;
+}
+
+.Arena .item {
+    display: inline-block;
+}
+
+.Arena #newgame-btn {
+    border: 1px solid black;
+    width: 200px;
+    height: 40px;
+    background-color: springgreen;
+    color: gray;
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.Arena #back-btn {
+    border: 1px solid black;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    float: left;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+
+}
+
+.Arena #back-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.Arena .training.hidden {
+    opacity: 0;
     display: none;
 }

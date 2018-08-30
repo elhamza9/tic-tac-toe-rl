@@ -17,7 +17,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Play TIC TAC TOE !</h1>
+        <h1>Play <span className="red">TIC</span> <span className="blue">TAC</span> <span className="red">TOE</span> <span className="blue">!</span></h1>
         {comp}
       </div>
     );

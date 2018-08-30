@@ -17,4 +17,9 @@ export const startGameAction = (nextPlayerIsBot) => ({
 export const setArenaAction = (mode, visible) => ({
     type: 'SET_ARENA_ACTION',
     payload: {mode: mode, arenaIsVisible: visible}
+});
+
+export const changeValuesOfStatesAction = (symbol, stateValPairs) => ({
+    type: 'CHANGE_VALUES_OF_STATES_ACTION',
+    payload: { symbol: symbol, stateValPairs: stateValPairs }
 })

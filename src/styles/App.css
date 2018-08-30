@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.App span.red {
+  color: red;
+}
+
+.App span.blue {
+  color: blue;
+}

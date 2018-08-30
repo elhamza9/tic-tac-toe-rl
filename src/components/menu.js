@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setArenaAction } from '../actions/app';
+import { setArenaAction } from '../redux/actions/app';
 
 import '../styles/Menu.css';
 
 class Menu extends Component {
 
-  constructor (props) {
-    super(props);
-  }
 
   onItemClick =  (ev) => {
       let id = ev.target.id;
@@ -27,15 +24,27 @@ class Menu extends Component {
   render() {
     return (
       <div className="Menu">
-          <div>
+          <div className="wrapper">
               <div id="humanvsbot" className="item" onClick={this.onItemClick}>
-                <p>Human vs Robot</p>
+                <div className="subitem">
+                    <p>HUMAN</p>
+                    <p>vs</p>
+                    <p>BOT</p>
+                  </div>
               </div>
               <div id="humanvshuman" className="item" onClick={this.onItemClick}>
-                <p>Human vs Human</p>
+                <div className="subitem">
+                  <p>HUMAN</p>
+                  <p>vs</p>
+                  <p>HUMAN</p>
+                </div>
               </div>
               <div id="botvsbot" className="item" onClick={this.onItemClick}>
-                <p>Bot vs Bot ( Training )</p>
+                <div className="subitem">
+                  <p>BOT</p>
+                  <p>vs</p>
+                  <p>BOT</p>
+                </div>
               </div>
           </div>
       </div>
@@ -52,6 +61,7 @@ const mapStateToProps = (state) => {
         };
 };
 */
+
 const mapDispatchToProps = (dispatch) => {
     return {
         showArena: (mode) => { dispatch(setArenaAction(mode, true)) }

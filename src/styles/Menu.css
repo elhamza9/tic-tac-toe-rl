@@ -1,12 +1,36 @@
 
+.Menu .wrapper {
+    width: 800px;
+    height: 220px;
+    margin: 0 auto;
+}
+
 .Menu .item {
     display: inline-block;
+    float: left;
     border: 1px solid black;
     margin: 10px 30px;
     width: 200px;
     height: 200px;
     text-align: center;
     cursor: pointer;
+    position: relative;
+}
+
+.Menu .subitem {
+    display: inline-block;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: -1;
+}
+
+.Menu .subitem p {
+    margin: 10px;
 }
 
 .Menu .item:hover {
