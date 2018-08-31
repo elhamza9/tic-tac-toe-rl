@@ -9,6 +9,7 @@ class Menu extends Component {
 
 
   onItemClick =  (ev) => {
+      //if ()
       let id = ev.target.id;
       if ( id === 'humanvshuman' ) {
         this.props.showArena('HxH');
